@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<a href="{%url 'signout' %}">logout</a>
+{%extends 'customer/base.html'%}
+
+{%block body_block%}
 <h1>welcome {{request.user}}</h1>
-</body>
-</html>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        {%for emp in employee%}
+        <div class="col-4 mt-5">
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Employee NAME:{{emp.emp_name}}</li>
+    <li class="list-group-item">Department:{{emp.department}}</li>
+    <li class="list-group-item">Salary:{{emp.salary}}</li>
+      <li class="list-group-item">Experience:{{emp.experience}}</li>
+      <li class="list-group-item">
+
+          <a href="" class="btn btn-primary">View</a>
+      </li>
+  </ul>
+</div>
+        </div>
+        {%endfor%}
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}
